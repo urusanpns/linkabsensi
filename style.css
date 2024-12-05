@@ -1,0 +1,129 @@
+/* Gaya dasar untuk layout dan konten */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Kontainer utama */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Formulir dan elemen input */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+select, input, button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styling untuk tombol */
+.btn {
+    padding: 20px;
+    font-size: 20px; /* Ukuran font lebih besar */
+    background-color: #4CAF50; /* Warna latar belakang hijau */
+    color: white; /* Warna teks putih */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Agar tombol memenuhi lebar form */
+    max-width: 300px; /* Membatasi lebar maksimal tombol */
+    margin: 20px 0; /* Spasi atas dan bawah tombol */
+    transition: background-color 0.3s ease; /* Animasi transisi warna */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Warna tombol berubah saat hover */
+}
+
+/* Membuat tombol lebih besar di perangkat mobile */
+@media (max-width: 600px) {
+    .btn {
+        font-size: 22px; /* Ukuran font lebih besar di perangkat kecil */
+        padding: 25px 40px; /* Padding lebih besar untuk perangkat kecil */
+    }
+}
+
+/* Styling untuk tabel data absensi */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Tombol ekspor */
+.export-btn {
+    background-color: #2196F3;
+    color: white;
+    font-size: 16px;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.export-btn:hover {
+    background-color: #1976D2;
+}
+
+/* Styling untuk bagian hapus data */
+.password-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.delete-btn {
+    background-color: #f44336; /* Warna merah untuk tombol hapus */
+    color: white;
+    font-size: 16px;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
