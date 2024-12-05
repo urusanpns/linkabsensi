@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Absensi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Absensi Karyawan</h1>
+        </header>
+        
+        <form id="attendanceForm">
+            <div class="form-group">
+                <label for="name">Pilih Nama:</label>
+                <select id="name" class="form-control">
+                    <option value="">--Pilih Nama--</option>
+                    <option value="John">John Doe</option>
+                    <option value="Jane">Jane Smith</option>
+                    <option value="Mike">Mike Johnson</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="status">Pilih Status Absensi:</label>
+                <select id="status" class="form-control" onchange="toggleDaysInput()">
+                    <option value="">--Pilih Status--</option>
+                    <option value="HADIR">HADIR</option>
+                    <option value="IZIN">IZIN</option>
+                    <option value="CUTI">CUTI</option>
+                    <option value="SAKIT">SAKIT</option>
+                    <option value="DINAS LUAR">DINAS LUAR</option>
+                </select>
+            </div>
+            
+            <!-- Input Jumlah Hari, hanya muncul jika status memerlukan jumlah hari -->
+            <div class="form-group" id="daysGroup" style="display: none;">
+                <label for="days">Jumlah Hari:</label>
+                <select id="days" class="form-control">
+                    <option value="">--Pilih Jumlah Hari--</option>
+                    <!-- Generate options for 1 to 365 -->
+                    <script>
+                        for (let i = 1; i <= 365; i++) {
+                            let option = document.createElement("option");
+                            option.value = i;
+                            option.textContent = `${i} Hari`;
+                            document.getElementById("days").appendChild(option);
+                        }
+                    </script>
+                </select>
+            </div>
+            
+            <!-- Tombol Submit Absensi -->
+            <button type="button" class="btn" onclick="submitAbsence()">KLIK UNTUK ABSEN</button>
+        </form>
+
+        <section>
+            <h2>Data Absensi:</h2>
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Status</th>
+                        <th>Jumlah Hari</th>
+                        <th>Tanggal</th>
+                        <th>Jam</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <button class="btn export-btn" onclick="exportToExcel()">Export ke Excel</button>
+
+        <!-- Password input untuk menghapus semua data -->
+        <div class="password-container">
+            <label for="password">Masukkan Password untuk Menghapus Semua Data:</label>
+            <input type="password" id="password" class="form-control" placeholder="Masukkan Password">
+            <button type="button" class="btn delete-btn" onclick="deleteAllData()">Hapus Semua Data</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
